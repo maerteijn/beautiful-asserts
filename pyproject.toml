@@ -1,0 +1,63 @@
+[tool.poetry]
+name = "beautiful-asserts"
+version = "0.0.1"
+description = "A demo project for the blogpost 'Beautiful asserts with your Django Test Client'"
+authors = ["Martijn Jacobs <maerteijn@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/maerteijn/beautiful-asserts"
+classifiers = [
+    "Environment :: Web Environment",
+    "Framework :: Django",
+    "Framework :: Django :: 4.2",
+    "License :: Other/Proprietary License",
+    "Programming Language :: Python :: 3.9",
+]
+packages = [
+    { include = "beautiful_asserts", from = "src" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+Django = "4.2rc1"
+django-environ = "~0.8"
+bs4 = "^0.0.1"
+
+[tool.poetry.dev-dependencies]
+flake8 = "~4.0"
+flake8-black = "^0.3.5"
+flake8-isort =  "~4.1"
+isort = "~5.10"
+black = "~22"
+pytest = "~7"
+pytest-django = "~4.5"
+
+[tool.poetry.scripts]
+"manage.py" =  "beautiful_asserts.manage:main"
+
+[build-system]
+requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 88
+--extend-exclude= "(/migrations/)|(/src/beautiful_asserts/settings/)|(/src/beautiful_asserts/manage.py)"
+
+[tool.isort]
+force_grid_wrap = 0
+include_trailing_comma = true
+line_length = 88
+skip = "migrations"
+multi_line_output = 3
+use_parentheses = true
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "beautiful_asserts.settings"
+testpaths = "tests/"
+addopts = "--reuse-db"
+
+[tool.coverage.run]
+omit = ["**/migrations/**", "**/tests/**"]
+
+[tool.coverage.report]
+show_missing = true

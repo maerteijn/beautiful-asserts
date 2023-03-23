@@ -1,0 +1,23 @@
+# Code
+.idea/
+.vscode/
+
+# Django
+src/beautiful_asserts/public/
+src/beautiful_asserts/static/beautiful_asserts/
+*.mo
+
+# OSX
+.DS_Store
+
+# Python
+__pycache__/
+*.egg-info/
+*.pyc
+.coverage*
+
+# Project
+.env
+.envrc
+*.db
+
