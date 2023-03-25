@@ -1,3 +1,5 @@
+import re
+
 import pytest
 from django.urls import reverse
 from pytest_django.asserts import assertContains
@@ -46,6 +48,15 @@ def test_article_create__get__assertContains(client):
         html=True,
     )
     assertContains(response, '<input type="submit" name="submit" value="Submit">')
+
+
+@pytest.mark.django_db
+def test_article_create__get__assert_with_regex(client):
+    response = client.get(reverse("article-create"))
+
+    assert response.status_code == 200
+    assert re.search("<h1.*>Create Article</h1>", str(response.content))
+    assert re.search("<form.*>", str(response.content))
 
 
 @pytest.mark.django_db
