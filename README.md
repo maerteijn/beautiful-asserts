@@ -1,43 +1,39 @@
 # Beautiful Asserts
 
-A demo project for the blogpost "Beautiful asserts with your Django Test Client".
+A demo project for the blogpost "[Beautiful asserts with your Django Test Client](https://www.maerteijn.nl/en/blog/beautiful-asserts-with-your-django-test-client)".
 
 ## Development setup
 
 ### Requirements
 
-- At least python 3.9 (pyenv managed recommended)
+- At least python 3.9
 
 
 ### Install the django project with poetry
 ```bash
-pyenv virtualenv 3.9 beautiful-asserts  # or your alternative to create a venv
+pyenv virtualenv 3.9 beautiful-asserts  # or your alternative to create a virtualenv
 pyenv activate beautiful-asserts
 pip install poetry
-make install
+poetry install
 ```
 
-Optional, when you're not creating the virtualenv yourself poetry will do it for you. You can activate the poetry venv like so:
+Optional, when you're not creating the virtualenv yourself poetry will do it for you. You can activate the poetry virtualenv like so:
 ```bash
 source $(poetry env info --path)/bin/activate
 ```
 
-### Linting
-`flake8-black` and `flake8-isort` are installed and configured
+### Development server
+
+Run the development server to see the example view and form:
 ```bash
-make lint
+manage.py runserver
 ```
 
-### Formatting
-
-`black` and `isort` are configured
-```bash
-make format
-```
+Now browse to http://localhost:8000
 
 ### Test
 
-Pytest with coverage is default enabled
+Run the testsuite:
 ```bash
-make test
+pytest
 ```
