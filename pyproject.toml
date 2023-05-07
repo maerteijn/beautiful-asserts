@@ -10,7 +10,7 @@ classifiers = [
     "Environment :: Web Environment",
     "Framework :: Django",
     "Framework :: Django :: 4.2",
-    "License :: Other/Proprietary License",
+    "License :: MIT",
     "Programming Language :: Python :: 3.9",
 ]
 packages = [
@@ -19,7 +19,7 @@ packages = [
 
 [tool.poetry.dependencies]
 python = "^3.9"
-Django = "4.2rc1"
+Django = "~4.2"
 django-environ = "~0.8"
 bs4 = "^0.0.1"
 
@@ -36,7 +36,7 @@ pytest-django = "~4.5"
 "manage.py" =  "beautiful_asserts.manage:main"
 
 [build-system]
-requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning"]
+requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.black]
